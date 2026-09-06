@@ -86,7 +86,7 @@ litebus::Future<std::shared_ptr<messages::ScheduleResponse>> InstanceCtrlActor::
     }
     litebus::Promise<std::shared_ptr<messages::ScheduleResponse>> promise;
     future.OnComplete(litebus::Defer(GetAID(), &InstanceCtrlActor::FinishSchedule, std::placeholders::_1,
-                                    req->requestid(), promise));
+                                     req->requestid(), promise));
     return promise.GetFuture();
 }
 
